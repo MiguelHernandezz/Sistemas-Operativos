@@ -1,0 +1,43 @@
+name: build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build minishell (PL2)
+        working-directory: PL2-minishell
+        run: make
+
+      - name: Smoke test minishell
+        working-directory: PL2-minishell
+        run: |
+          echo "hola mundo" > entrada.txt
+          printf '%s\n' \
+            'pwd' \
+            'echo uno ; echo dos' \
+            'ls | grep -c .c' \
+            'cat < entrada.txt' \
+            'echo redirigido > salida.txt' \
+            'cd /tmp' \
+            'exit' | ./minishell | tee out.txt
+          grep -q "uno" out.txt
+          grep -q "dos" out.txt
+          grep -q "hola mundo" out.txt
+          grep -q "redirigido" salida.txt
+
+      - name: Build race simulation (PL3)
+        working-directory: PL3-carrera-hilos
+        run: make
+
+      - name: Run race simulation
+        working-directory: PL3-carrera-hilos
+        run: |
+          timeout 30 ./simula_car | tee out.txt
+          test "$(grep -c '^Llegada' out.txt)" -eq 8

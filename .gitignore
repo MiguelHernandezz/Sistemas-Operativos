@@ -1,0 +1,5 @@
+# Build outputs
+*.o
+*.a
+PL2-minishell/minishell
+PL3-carrera-hilos/simula_car
