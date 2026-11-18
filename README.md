@@ -73,6 +73,22 @@ Linux (or WSL on Windows) with `gcc` and `make`. On Debian/Ubuntu: `sudo apt ins
 
 ---
 
+<!-- syllabus:start -->
+## 📘 Syllabus · official UAH teaching guide
+
+> **Sistemas Operativos (780007)** · 6 ECTS · 2nd year · 1st semester · contents from the 2025-26 teaching guide · [official subject page](https://www.uah.es/es/estudios/estudios-oficiales/grados/asignatura/Sistemas-Operativos-780007/)
+
+| Unit | Hours | Topics |
+|---|---|---|
+| Introduction and computer architecture background | 8 h | Batch, multiprogrammed and time-sharing systems · Interrupts, traps and dual-mode execution · Memory protection and the MMU · Mechanisms vs policies |
+| Operating system structure | 12 h | Shell and system-call interfaces · Layered design and the kernel · Case studies: Linux, Windows, Mach |
+| Processes and threads | 14 h | Program vs process, memory image, life cycle · Process system calls and kernel data structures · POSIX threads |
+| Process synchronisation | 12 h | Race conditions, atomicity, the critical-section problem · Pipes, semaphores, mutexes and condition variables · Classic synchronisation problems |
+| CPU scheduling | 10 h | Scheduling criteria · FCFS, SJF, priorities and pre-emption · Round robin, multilevel feedback queues · Linux and Windows schedulers |
+<!-- syllabus:end -->
+
+---
+
 <div align="center">
 
 Miguel Hernández López · [GitHub](https://github.com/MiguelHernandezz) · [LinkedIn](https://www.linkedin.com/in/miguel-hernandez-lopez/)
